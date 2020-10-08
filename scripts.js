@@ -2,6 +2,13 @@
 let todoList = []; //declares a new array for Your todo list
 
 let initList = function () {
+
+    let savedList = window.localStorage.getItem("todos");
+    if (savedList != null)
+        todoList = JSON.parse(savedList);
+    else
+//code creating a default list with 2 items
+
     todoList.push(
         {
             title: "Learn JS",
@@ -18,7 +25,7 @@ let initList = function () {
     );
 }
 
-//initList();
+initList();
 
 let updateTodoList = function () {
     let todoListDiv =
@@ -38,7 +45,8 @@ let updateTodoList = function () {
         });
 
         //add all elements
-        for (let todo in todoList) {
+    let filterInput = document.getElementById("inputSearch");
+    for (let todo in todoList) {
             let newDeleteButton = document.createElement("input");
             newDeleteButton.type = "button";
             newDeleteButton.value = "x";
@@ -86,6 +94,8 @@ let addTodo = function() {
     //add item to the list
 
     todoList.push(newTodo);
+
+    window.localStorage.setItem("todos", JSON.stringify(todoList));
     updateTodoList();
 }
 
