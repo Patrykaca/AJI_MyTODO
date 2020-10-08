@@ -3,27 +3,40 @@ let todoList = []; //declares a new array for Your todo list
 
 let initList = function () {
 
-    let savedList = window.localStorage.getItem("todos");
-    if (savedList != null)
-        todoList = JSON.parse(savedList);
-    else
-//code creating a default list with 2 items
-
-        todoList.push(
-            {
-                title: "Learn JS",
-                description: "Create a demo application for my TODO's",
-                place: "445",
-                dueDate: new Date(2020, 10, 7)
+    $.ajax({
+        // copy Your bin identifier here. It can be obtained in the dashboard
+        url: 'https://api.jsonbin.io/b/5f7f73dc65b18913fc5cd839/latest',
+        type: 'GET',
+        headers: { //Required only if you are trying to access a private bin
+            'secret-key': '$2b$10$mjAr/h0vcCE3LnD0ul5Oc.5a8oqPF.CIHApkOU2WIMddvY7sZDvUu'
+                },
+                success: (data) => {
+                //console.log(data);
+                todoList = data;
             },
-            {
-                title: "Lecture test",
-                description: "Quick test from the first three lectures",
-                place: "F6",
-                dueDate: new Date(2020, 10, 8)
+                error: (err) => {
+                console.log(err.responseJSON);
             }
-        );
-}
+                });
+};
+
+let updateJSONbin = function() {
+    $.ajax({
+        url: 'https://api.jsonbin.io/b/5f7f73dc65b18913fc5cd839',
+        type: 'PUT',
+        headers: { //Required only if you are trying to access a private bin
+            'secret-key': '$2b$10$mjAr/h0vcCE3LnD0ul5Oc.5a8oqPF.CIHApkOU2WIMddvY7sZDvUu'
+        },
+        contentType: 'application/json',
+        data: JSON.stringify(todoList),
+        success: (data) => {
+            console.log(data);
+        },
+        error: (err) => {
+            console.log(err.responseJSON);
+        }
+    });
+};
 
 initList();
 
@@ -67,14 +80,13 @@ let updateTodoList = function () {
             todoListDiv.appendChild(newElement);
         }
     }
-
-
 }
 
 setInterval(updateTodoList, 1000);
 
 let deleteTodo = function (index) {
     todoList.splice(index, 1);
+    updateJSONbin();
     updateTodoList();
 }
 
@@ -101,6 +113,7 @@ let addTodo = function () {
     todoList.push(newTodo);
 
     window.localStorage.setItem("todos", JSON.stringify(todoList));
+    updateJSONbin();
     updateTodoList();
 }
 
