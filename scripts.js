@@ -37,9 +37,21 @@ let updateTodoList = function () {
             newElement.appendChild(newContent);
             todoListDiv.appendChild(newElement);
         }
+
+    let newDeleteButton = document.createElement("input");
+    newDeleteButton.type = "button";
+    newDeleteButton.value = "x";
+    newDeleteButton.addEventListener("click",
+        function() {
+            deleteTodo(todo);
+        });
 }
 
 setInterval(updateTodoList, 1000);
+
+let deleteTodo = function(index) {
+    todoList.splice(index,1);
+}
 
 let addTodo = function() {
     //get the elements in the form
@@ -60,6 +72,7 @@ let addTodo = function() {
         dueDate: newDate
     };
     //add item to the list
+
     todoList.push(newTodo);
 }
 
