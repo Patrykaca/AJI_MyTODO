@@ -44,7 +44,9 @@ let updateTodoList = function () {
     let todoListDiv =
         document.getElementById("todoListView");
 
-    let table = document.getElementById("todoTable");
+    let table = $("#todoTable").find("tbody");
+
+    table.empty();
     
     //remove all elements
     while (todoListDiv.firstChild) {
@@ -72,12 +74,19 @@ let updateTodoList = function () {
             newElement.appendChild(newContent);
             newElement.appendChild(newDeleteButton);
             todoListDiv.appendChild(newElement);
-
-
-
-
-
         }
+    }
+
+    for (let todo in todoList) {
+        table.append(
+            "<tr>" +
+            "<td>" + todoList[todo].title + "</td>" +
+            "<td>" + todoList[todo].description + "</td>" +
+            "<td>" + todoList[todo].place + "</td>" +
+            "<td>" + todoList[todo].dueDate + "</td>" +
+            "<td>" + "<input class='btn btn-outline-danger' type='button' value='Delete' onclick='deleteTodo(" + todo + ")'/>" + "</td>" +
+            "</tr>"
+        );
     }
 }
 
