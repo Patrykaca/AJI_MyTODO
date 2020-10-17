@@ -44,18 +44,12 @@ let updateTodoList = function () {
     let todoListDiv =
         document.getElementById("todoListView");
 
+    let table = document.getElementById("todoTable");
+    
     //remove all elements
     while (todoListDiv.firstChild) {
         todoListDiv.removeChild(todoListDiv.firstChild);
     }
-
-    let newDeleteButton = document.createElement("input");
-    newDeleteButton.type = "button";
-    newDeleteButton.value = "x";
-    newDeleteButton.addEventListener("click",
-        function () {
-            deleteTodo(todo);
-        });
 
     //add all elements
     let filterInput = document.getElementById("inputSearch");
@@ -78,6 +72,11 @@ let updateTodoList = function () {
             newElement.appendChild(newContent);
             newElement.appendChild(newDeleteButton);
             todoListDiv.appendChild(newElement);
+
+
+
+
+
         }
     }
 }
