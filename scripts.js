@@ -41,41 +41,10 @@ let updateJSONbin = function() {
 initList();
 
 let updateTodoList = function () {
-    let todoListDiv =
-        document.getElementById("todoListView");
 
     let table = $("#todoTable").find("tbody");
 
     table.empty();
-    
-    //remove all elements
-    while (todoListDiv.firstChild) {
-        todoListDiv.removeChild(todoListDiv.firstChild);
-    }
-
-    //add all elements
-    let filterInput = document.getElementById("inputSearch");
-    for (let todo in todoList) {
-        if (
-            (filterInput.value == "") ||
-            (todoList[todo].title.includes(filterInput.value)) ||
-            (todoList[todo].description.includes(filterInput.value))
-        ) {
-            let newDeleteButton = document.createElement("input");
-            newDeleteButton.type = "button";
-            newDeleteButton.value = "x";
-            newDeleteButton.addEventListener("click",
-                function () {
-                    deleteTodo(todo);
-                });
-            let newElement = document.createElement("div");
-            let newContent = document.createTextNode(
-                todoList[todo].title + " " + todoList[todo].description + " ");
-            newElement.appendChild(newContent);
-            newElement.appendChild(newDeleteButton);
-            todoListDiv.appendChild(newElement);
-        }
-    }
 
     for (let todo in todoList) {
         table.append(
@@ -119,12 +88,11 @@ let addTodo = function () {
     //add item to the list
 
     todoList.push(newTodo);
-
     window.localStorage.setItem("todos", JSON.stringify(todoList));
     updateJSONbin();
     updateTodoList();
+    updateJSONbin();
 }
-
 
 
 
