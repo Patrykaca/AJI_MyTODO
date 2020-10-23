@@ -42,12 +42,11 @@ let updateJSONbin = function() {
 initList();
 
 let updateTodoList = function () {
-    let todoListDiv =
-        document.getElementById("todoListView");
 
     let table = $("#todoTable").find("tbody");
 
     table.empty();
+<<<<<<< HEAD
     
     //remove all elements
     while (todoListDiv.firstChild) {
@@ -78,6 +77,8 @@ let updateTodoList = function () {
             todoListDiv.appendChild(newElement);
         }
     }
+=======
+>>>>>>> origin/main
 
     for (let todo in todoList) {
         table.append(
@@ -128,12 +129,11 @@ let addTodo = function () {
     //add item to the list
 
     todoList.push(newTodo);
-
     window.localStorage.setItem("todos", JSON.stringify(todoList));
     updateJSONbin();
     updateTodoList();
+    updateJSONbin();
 }
-
 
 
 
