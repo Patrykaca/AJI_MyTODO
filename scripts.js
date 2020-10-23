@@ -37,28 +37,60 @@ let updateJSONbin = function() {
         }
     });
 };
-//
+
 
 initList();
 
-let updateTodoList = function () {
 
-    let table = $("#todoTable").find("tbody");
+let updateTodoList= function(){
 
-    table.empty();
+    let filterInput = document.getElementById("inputSearch");
+    
+    ($("#todoTable").find("tbody")).empty();
 
     for (let todo in todoList) {
-        table.append(
-            "<tr>" +
-            "<td>" + todoList[todo].title + "</td>" +
-            "<td>" + todoList[todo].description + "</td>" +
-            "<td>" + todoList[todo].place + "</td>" +
-            "<td>" + todoList[todo].dueDate + "</td>" +
-            "<td>" + "<input class='btn btn-outline-danger' type='button' value='Delete' onclick='deleteTodo(" + todo + ")'/>" + "</td>" +
-            "</tr>"
-        );
+        if (
+            (filterInput.value == "") ||
+            (todoList[todo].title.includes($("#inputSearch").val())) ||
+            (todoList[todo].description.includes($("#inputSearch").val()))
+        ) {
+            let newRow = document.createElement("tr");
+
+            let newTittleElement = document.createElement("td");
+            newTittleElement.appendChild(document.createTextNode(todoList[todo].title))
+
+            let newDescriptionElement = document.createElement("td");
+            newDescriptionElement.appendChild(document.createTextNode(todoList[todo].description));
+
+            let newPlaceElement = document.createElement("td");
+            newPlaceElement.appendChild(document.createTextNode(todoList[todo].place))
+
+            let newDateElement = document.createElement("td");
+            newDateElement.appendChild(document.createTextNode(todoList[todo].dueDate))
+
+            let newDeleteButton = document.createElement("input");
+            newDeleteButton.type = "button";
+            newDeleteButton.value = "Delete";
+            newDeleteButton.addEventListener("click",
+                function () {
+                    deleteTodo(todo);
+                });
+            let newDeleteButtonCell = document.createElement("td");
+            newDeleteButtonCell.appendChild(newDeleteButton);
+
+            newRow.append(newTittleElement);
+            newRow.appendChild(newDescriptionElement);
+            newRow.appendChild(newPlaceElement);
+            newRow.appendChild(newDateElement);
+            newRow.appendChild(newDeleteButtonCell);
+ 
+            $("#tbodyTable").append(newRow);
+            
+        }
     }
-}
+    
+
+};
 
 setInterval(updateTodoList, 1000);
 
@@ -67,7 +99,6 @@ let deleteTodo = function (index) {
     updateJSONbin();
     updateTodoList();
 }
-//$("#test").val())
 
 let addTodo = function () {
     
