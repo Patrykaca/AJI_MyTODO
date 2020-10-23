@@ -46,39 +46,6 @@ let updateTodoList = function () {
     let table = $("#todoTable").find("tbody");
 
     table.empty();
-<<<<<<< HEAD
-    
-    //remove all elements
-    while (todoListDiv.firstChild) {
-        todoListDiv.removeChild(todoListDiv.firstChild);
-    }
-    
-    //add all elements
-    let filterInput = document.getElementById("inputSearch");
-    for (let todo in todoList) {
-        if (
-            (filterInput.value == "") ||
-            (todoList[todo].title.includes(filterInput.value)) ||
-            (todoList[todo].description.includes(filterInput.value))
-        ) {
-            
-            let newDeleteButton = document.createElement("input");
-            newDeleteButton.type = "button";
-            newDeleteButton.value = "x";
-            newDeleteButton.addEventListener("click",
-                function () {
-                    deleteTodo(todo);
-                });
-            let newElement = document.createElement("div");
-            let newContent = document.createTextNode(
-                todoList[todo].title + " " + todoList[todo].description + " ");
-            newElement.appendChild(newContent);
-            newElement.appendChild(newDeleteButton);
-            todoListDiv.appendChild(newElement);
-        }
-    }
-=======
->>>>>>> origin/main
 
     for (let todo in todoList) {
         table.append(
