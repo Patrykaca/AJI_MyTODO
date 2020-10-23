@@ -70,17 +70,6 @@ let deleteTodo = function (index) {
 //$("#test").val())
 
 let addTodo = function () {
-    // //get the elements in the form
-    // let inputTitle = document.getElementById("inputTitle");
-    // let inputDescription = document.getElementById("inputDescription");
-    // let inputPlace = document.getElementById("inputPlace");
-    // let inputDate = document.getElementById("inputDate");
-    // //get the values from the form
-    // let newTitle = inputTitle.value;
-    // let newDescription = inputDescription.value;
-    // let newPlace = inputPlace.value;
-    // let newDate = new Date(inputDate.value);
-    //create new item
     
     let newTitle = $("#inputTitle").val();
     let newDescription = $("#inputDescription").val();
