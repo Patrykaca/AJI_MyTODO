@@ -64,6 +64,10 @@ table {
 tbody > tr {
     text-align: justify;
     background: none;
+
+    border: #0088cc solid;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 tbody > tr > td {
@@ -73,12 +77,13 @@ tbody > tr > td {
     padding-bottom: 10px;
 }
 
+td:first-child {
+
+    color: #0088cc;
+}
+
 td:last-child {
 margin-left: 0px;
 }
 
-#todoTable{
-    background-color: rgb(255,255,255);
-    opacity:0.8;
-}
 
