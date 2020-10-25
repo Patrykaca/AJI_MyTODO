@@ -33,10 +33,9 @@
                     <input class="form-group" type="text" id="inputDescription" placeholder="Description"/>
                     <input class="form-group" type="text" id="inputPlace" placeholder="Place"/>
                     <input class="form-group" type="date" id="inputDate" placeholder="Date"/>
-
-<div>
-                    <input class="btn btn-primary" id="addBtn" type="button" value="Add" onclick="addTodo()"/>
-</div>
+                    <div>
+                        <input class="btn btn" id="addBtn" type="button" value="Add" onclick="addTodo()"/>
+                    </div>
                 </form>
             </div>
         </div>
@@ -46,10 +45,15 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 ">
+            <div class="col-sm-12 ">
                 <div class="searchToDo">
                     <!-- onchange="updateTodoList()" -->
                     <input class="form-group" type="text" id="inputSearch" placeholder="Type Your search here..."/>
+                </div>
+                <div class="dateSearch">
+                    <input class="form-group" type="date" id="inputDateFrom" placeholder="Date"/>
+                    <input class="form-group" type="date" id="inputDateTo" placeholder="Date"/>
+                    <input class="btn form-group" type="button" value="Search" onclick="updateTodoList()"/>
                 </div>
             </div>
         </div>
@@ -58,19 +62,19 @@
 
 <section>
     <div class="container  col-sm-8 ">
-    
-                <table id="todoTable" class="table table-hover">
-                    <thead>
-                    <tr id="tableHeader">
-                        <th scope="col">Title</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Place</th>
-                        <th scope="col">Date</th>
-                        <th scope="col"><i class=" icon-trash"></i></th>
-                    </tr>
-                    </thead>
-                    <tbody id="tbodyTable"></tbody>
-                </table>
+
+        <table id="todoTable" class="table table-hover">
+            <thead>
+            <tr id="tableHeader">
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Place</th>
+                <th scope="col">Date</th>
+                <th scope="col"><i class=" icon-trash"></i></th>
+            </tr>
+            </thead>
+            <tbody id="tbodyTable"></tbody>
+        </table>
 
     </div>
 

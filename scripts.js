@@ -48,6 +48,9 @@ let updateTodoList= function(){
     
     ($("#todoTable").find("tbody")).empty();
 
+    const dateFrom = $("#inputDateFrom");
+    const dateTo = $("#inputDateTo");
+
     for (let todo in todoList) {
         if (
             (filterInput.value == "") ||

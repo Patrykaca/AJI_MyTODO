@@ -30,20 +30,50 @@ body{
     width: 45%;
     border-radius: 5px;
     padding: 4px;
-
     border: 2px solid #fff3da;
+}
+
+#addBtn {
+    background-color: #e6f8d1;
+    color: #333333;
+    border-color: #e6f8d1!important;
+    font-weight: bold;
+}
+
+#addBtn:hover {
+    background-color: #cae9be;
+    color: #333333;
+    border-color: #cae9be!important;
 }
 
 
 /* search */
 
+
+
 .searchToDo  input{
-    margin-top: 6%;
+    margin-top: 3%;
     margin-left: auto !important;
     margin-right: auto !important;
     display: block !important;
-    border: 2px solid #ffeaea;;
+    border: 2px solid #ffeaea;
     width: 50%;
+    height: 45px;
+    border-radius: 5px;
+    background: #ffffff;
+}
+
+.dateSearch {
+    display: block!important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center;
+}
+
+.dateSearch > input{
+    display: inline-block!important;
+    margin-top: 10px;
+    border: 2px solid #ffeaea;
     height: 45px;
     border-radius: 5px;
     background: #ffffff;
@@ -57,9 +87,6 @@ table {
 #tableHeader {
     font-size: 30px;
 }
-
-
-
 
 tbody > tr {
     text-align: justify;
