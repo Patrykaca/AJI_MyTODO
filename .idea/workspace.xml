@@ -21,8 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2e93f190-d796-49b0-906e-5ce48fa91ae4" name="Default Changelist" comment="new look">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/theme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +76,7 @@
       <workItem from="1603383863999" duration="1268000" />
       <workItem from="1603470129808" duration="312000" />
       <workItem from="1603648354127" duration="4817000" />
-      <workItem from="1603718011297" duration="7842000" />
+      <workItem from="1603718011297" duration="9224000" />
     </task>
     <task id="LOCAL-00001" summary="new look">
       <created>1603383933502</created>
@@ -118,9 +116,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.-324.1920.1040@0.0.1536.824" timestamp="1603383937879" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1603230277289">
+    <state x="425" y="187" key="run.anything.popup" timestamp="1603747903656">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824/-1920.-324.1920.1040@0.0.1536.824" timestamp="1603230277289" />
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824/1920.-513.1680.1010@0.0.1536.824" timestamp="1603747903656" />
   </component>
 </project>

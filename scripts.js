@@ -57,40 +57,44 @@ let checkSearch = function (search, item) {
 
 let updateTodoList = function () {
 
-    let filterInput = document.getElementById("inputSearch");
-
-    ($("#todoTable").find("tbody")).empty();
+    $("#todoTable").find("tbody").empty();
 
     const dateFrom = $("#inputDateFrom");
     const dateTo = $("#inputDateTo");
     let startDate = new Date(dateFrom.val()).getTime();
     let endDate = new Date(dateTo.val()).getTime();
     let search = $("#inputSearch").val();
+    let searchList = [];
+
+    for (let item in todoList) {
+        if (
+            checkSearch(search, todoList[item])
+            &&
+            (dateFrom.val() == "" || startDate <= new Date(todoList[item].dueDate).getTime())
+            &&
+            (dateTo.val() == "" || endDate >= new Date(todoList[item].dueDate).getTime())
+        ) {
+            searchList.push(todoList[item]);
+        }
+    }
 
     //alert(startDate + " " + endDate);
 
-    for (let todo in todoList) {
-      //  if (
-      //      (filterInput.value == "") ||
-      //      (todoList[todo].title.includes($("#inputSearch").val())) ||
-      //      (todoList[todo].description.includes($("#inputSearch").val())) ||
-      //      (todoList[todo].place.includes($("#inputSearch").val()))
+    for (let todo in searchList) {
 
-        if(checkSearch(search,todoList[todo]))
-        {
             let newRow = document.createElement("tr");
 
             let newTittleElement = document.createElement("td");
-            newTittleElement.appendChild(document.createTextNode(todoList[todo].title))
+            newTittleElement.appendChild(document.createTextNode(searchList[todo].title))
 
             let newDescriptionElement = document.createElement("td");
-            newDescriptionElement.appendChild(document.createTextNode(todoList[todo].description));
+            newDescriptionElement.appendChild(document.createTextNode(searchList[todo].description));
 
             let newPlaceElement = document.createElement("td");
-            newPlaceElement.appendChild(document.createTextNode(todoList[todo].place))
+            newPlaceElement.appendChild(document.createTextNode(searchList[todo].place))
 
             let newDateElement = document.createElement("td");
-            newDateElement.appendChild(document.createTextNode(todoList[todo].dueDate))
+            newDateElement.appendChild(document.createTextNode(searchList[todo].dueDate))
 
             //alert(todoList[todo].title + getTimeFromDate(todoList[todo]));
 
@@ -113,8 +117,6 @@ let updateTodoList = function () {
             $("#tbodyTable").append(newRow);
 
         }
-    }
-
 
 };
 
