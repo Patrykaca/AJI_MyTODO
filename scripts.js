@@ -1,5 +1,6 @@
 "use strict"
 let todoList = []; //declares a new array for Your todo list
+let todoList2 = [];
 
 let initList = function () {
 
@@ -9,18 +10,18 @@ let initList = function () {
         type: 'GET',
         headers: { //Required only if you are trying to access a private bin
             'secret-key': '$2b$10$mjAr/h0vcCE3LnD0ul5Oc.5a8oqPF.CIHApkOU2WIMddvY7sZDvUu'
-                },
-                success: (data) => {
-                //console.log(data);
-                todoList = data;
-            },
-                error: (err) => {
-                console.log(err.responseJSON);
-            }
-                });
+        },
+        success: (data) => {
+            //console.log(data);
+            todoList = data;
+        },
+        error: (err) => {
+            console.log(err.responseJSON);
+        }
+    });
 };
 
-let updateJSONbin = function() {
+let updateJSONbin = function () {
     $.ajax({
         url: 'https://api.jsonbin.io/b/5f7f73dc65b18913fc5cd839',
         type: 'PUT',
@@ -41,22 +42,42 @@ let updateJSONbin = function() {
 
 initList();
 
+let checkSearch = function (search, item) {
+    if (
+        item.value == "" ||
+        item.title.includes(search) ||
+        item.description.includes(search) ||
+        item.place.includes(search)
+    ) {
+        return true;
+    }
+    return false;
+};
 
-let updateTodoList= function(){
+
+let updateTodoList = function () {
 
     let filterInput = document.getElementById("inputSearch");
-    
+
     ($("#todoTable").find("tbody")).empty();
 
     const dateFrom = $("#inputDateFrom");
     const dateTo = $("#inputDateTo");
+    let startDate = new Date(dateFrom.val()).getTime();
+    let endDate = new Date(dateTo.val()).getTime();
+    let search = $("#inputSearch").val();
+
+    //alert(startDate + " " + endDate);
 
     for (let todo in todoList) {
-        if (
-            (filterInput.value == "") ||
-            (todoList[todo].title.includes($("#inputSearch").val())) ||
-            (todoList[todo].description.includes($("#inputSearch").val()))
-        ) {
+      //  if (
+      //      (filterInput.value == "") ||
+      //      (todoList[todo].title.includes($("#inputSearch").val())) ||
+      //      (todoList[todo].description.includes($("#inputSearch").val())) ||
+      //      (todoList[todo].place.includes($("#inputSearch").val()))
+
+        if(checkSearch(search,todoList[todo]))
+        {
             let newRow = document.createElement("tr");
 
             let newTittleElement = document.createElement("td");
@@ -70,6 +91,8 @@ let updateTodoList= function(){
 
             let newDateElement = document.createElement("td");
             newDateElement.appendChild(document.createTextNode(todoList[todo].dueDate))
+
+            //alert(todoList[todo].title + getTimeFromDate(todoList[todo]));
 
             let newDeleteButton = document.createElement("input");
             newDeleteButton.type = "button";
@@ -86,12 +109,12 @@ let updateTodoList= function(){
             newRow.appendChild(newPlaceElement);
             newRow.appendChild(newDateElement);
             newRow.appendChild(newDeleteButtonCell);
- 
+
             $("#tbodyTable").append(newRow);
-            
+
         }
     }
-    
+
 
 };
 
@@ -101,15 +124,15 @@ let deleteTodo = function (index) {
     todoList.splice(index, 1);
     updateJSONbin();
     updateTodoList();
-}
+};
 
 let addTodo = function () {
-    
+
     let newTitle = $("#inputTitle").val();
     let newDescription = $("#inputDescription").val();
     let newPlace = $("#inputPlace").val();
     let newDate = new Date($("#inputDate").val());
-    
+
     let newTodo = {
         title: newTitle,
         description: newDescription,
@@ -123,11 +146,24 @@ let addTodo = function () {
     updateJSONbin();
     updateTodoList();
     updateJSONbin();
-}
+};
+
+let getTimeFromDate = function (x) {
+    return new Date(x.dueDate).getTime();
+};
 
 
+let updateTodoList2 = function () {
+    alert("ehhehe");
+};
 
-
+let checkDate = function (obj, startDate, endDate) {
+    if (getTimeFromDate(obj.dueDate) >= startDate &&
+        getTimeFromDate(obj.dueDate) <= endDate
+    ) {
+        todoList2.push(obj);
+    }
+};
 
 
 

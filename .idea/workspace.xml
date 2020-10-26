@@ -22,14 +22,6 @@
     <list default="true" id="2e93f190-d796-49b0-906e-5ce48fa91ae4" name="Default Changelist" comment="new look">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/theme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/theme_BACKUP_9489.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/theme_BACKUP_9795.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/theme_BASE_9489.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/theme_BASE_9795.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/theme_LOCAL_9489.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/theme_LOCAL_9795.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/theme_REMOTE_9489.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/theme_REMOTE_9795.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts.js" afterDir="false" />
     </list>
@@ -86,6 +78,7 @@
       <workItem from="1603383863999" duration="1268000" />
       <workItem from="1603470129808" duration="312000" />
       <workItem from="1603648354127" duration="4817000" />
+      <workItem from="1603718011297" duration="7842000" />
     </task>
     <task id="LOCAL-00001" summary="new look">
       <created>1603383933502</created>
