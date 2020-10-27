@@ -78,46 +78,40 @@ let updateTodoList = function () {
         }
     }
 
-    //alert(startDate + " " + endDate);
-
     for (let todo in searchList) {
 
-            let newRow = document.createElement("tr");
+        let newRow = document.createElement("tr");
 
-            let newTittleElement = document.createElement("td");
-            newTittleElement.appendChild(document.createTextNode(searchList[todo].title))
+        let newTittleElement = document.createElement("td");
+        newTittleElement.appendChild(document.createTextNode(searchList[todo].title))
 
-            let newDescriptionElement = document.createElement("td");
-            newDescriptionElement.appendChild(document.createTextNode(searchList[todo].description));
+        let newDescriptionElement = document.createElement("td");
+        newDescriptionElement.appendChild(document.createTextNode(searchList[todo].description));
 
-            let newPlaceElement = document.createElement("td");
-            newPlaceElement.appendChild(document.createTextNode(searchList[todo].place))
+        let newPlaceElement = document.createElement("td");
+        newPlaceElement.appendChild(document.createTextNode(searchList[todo].place))
 
-            let newDateElement = document.createElement("td");
-            newDateElement.appendChild(document.createTextNode(searchList[todo].dueDate))
+        let newDateElement = document.createElement("td");
+        newDateElement.appendChild(document.createTextNode(searchList[todo].dueDate))
 
-            //alert(todoList[todo].title + getTimeFromDate(todoList[todo]));
+        let newDeleteButton = document.createElement("input");
+        newDeleteButton.type = "button";
+        newDeleteButton.value = "Delete";
+        newDeleteButton.addEventListener("click",
+            function () {
+                deleteTodo(todo);
+            });
+        let newDeleteButtonCell = document.createElement("td");
+        newDeleteButtonCell.appendChild(newDeleteButton);
 
-            let newDeleteButton = document.createElement("input");
-            newDeleteButton.type = "button";
-            newDeleteButton.value = "Delete";
-            newDeleteButton.addEventListener("click",
-                function () {
-                    deleteTodo(todo);
-                });
-            let newDeleteButtonCell = document.createElement("td");
-            newDeleteButtonCell.appendChild(newDeleteButton);
+        newRow.append(newTittleElement);
+        newRow.appendChild(newDescriptionElement);
+        newRow.appendChild(newPlaceElement);
+        newRow.appendChild(newDateElement);
+        newRow.appendChild(newDeleteButtonCell);
 
-            newRow.append(newTittleElement);
-            newRow.appendChild(newDescriptionElement);
-            newRow.appendChild(newPlaceElement);
-            newRow.appendChild(newDateElement);
-            newRow.appendChild(newDeleteButtonCell);
-
-            $("#tbodyTable").append(newRow);
-
-        }
-
+        $("#tbodyTable").append(newRow);
+    }
 };
 
 setInterval(updateTodoList, 1000);
@@ -154,18 +148,6 @@ let getTimeFromDate = function (x) {
     return new Date(x.dueDate).getTime();
 };
 
-
-let updateTodoList2 = function () {
-    alert("ehhehe");
-};
-
-let checkDate = function (obj, startDate, endDate) {
-    if (getTimeFromDate(obj.dueDate) >= startDate &&
-        getTimeFromDate(obj.dueDate) <= endDate
-    ) {
-        todoList2.push(obj);
-    }
-};
 
 
 

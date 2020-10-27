@@ -1,21 +1,16 @@
-body{
+body {
     background-image: url("https://images.pexels.com/photos/2501965/pexels-photo-2501965.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-
     background-color: #cccccc;
     background-position: center bottom; /* Center the image */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
-    /* blue from background: #c5e7e6 */
 }
 
 .headerToDo {
     text-align: center;
     margin-bottom: 3%;
     margin-top: 1.7%;
-
-
 }
 
 .headerToDo > .page-header > h1 {
@@ -36,22 +31,19 @@ body{
 #addBtn {
     background-color: #e6f8d1;
     color: #333333;
-    border-color: #e6f8d1!important;
+    border-color: #e6f8d1 !important;
     font-weight: bold;
 }
 
 #addBtn:hover {
     background-color: #cae9be;
     color: #333333;
-    border-color: #cae9be!important;
+    border-color: #cae9be !important;
 }
-
 
 /* search */
 
-
-
-.searchToDo  input{
+.searchToDo input {
     margin-top: 3%;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -64,35 +56,35 @@ body{
 }
 
 .dateSearch {
-    display: block!important;
+    display: block !important;
     margin-left: auto !important;
     margin-right: auto !important;
     text-align: center;
 }
 
-.dateSearch > input{
-    display: inline-block!important;
+.dateSearch > input {
+    display: inline-block !important;
     margin-top: 10px;
     border: 2px solid #ffeaea;
     height: 45px;
     border-radius: 5px;
     background: #ffffff;
-
 }
 
 .dateSearch > input:first-child {
     margin-right: 20px;
- }
+}
 
 .dateSearch > input:last-child {
-      margin-left: 20px;
-  }
+    margin-left: 20px;
+}
 
 /* table */
 table {
     width: 100%;
 
 }
+
 #tableHeader {
     font-size: 30px;
 }
@@ -109,10 +101,7 @@ tbody > tr > td {
     padding-bottom: 10px;
 }
 
-
-
-#todoTable{
-    background-color: rgb(255,255,255);
-    opacity:0.8;
+#todoTable {
+    background-color: rgb(255, 255, 255);
+    opacity: 0.8;
 }
-
